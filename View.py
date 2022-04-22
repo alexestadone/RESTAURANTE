@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import uic, QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QMessageBox, QMainWindow, QDialog
+from PyQt5.QtGui import QFont
 
 form_class = uic.loadUiType('Interfaz.ui')[0]
 
@@ -29,18 +30,17 @@ class View(QMainWindow, form_class):
     addToListSignal = QtCore.pyqtSignal()
     atrasSignal = QtCore.pyqtSignal()
     cerrarSignal = QtCore.pyqtSignal()
+    confirmarSignal = QtCore.pyqtSignal()
+    inputCambiadoSignal = QtCore.pyqtSignal()
+    finalizarSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
         self.setupUi(self)  # Constructor Formulario Designer Cargamos el formulario
         self.pantallas.setCurrentIndex(0)
         self.setStyleSheet(stylesheet)
-        # global distrolist
-        # distrolist = []
-        # self.unidades.clear()  # vaciamos lista de unidades x si futuro cambio
-        # distrolist = ['Kilogramos', 'Litros', 'Docenas',
-        #               'Unidades']  # lista predeterminada, se puede intentar hacer input de las unidades en un futuro
-        # self.unidades.addItems(distrolist)  # añadir lista al combobox de unidades
+        self.distrolist = ['Kilogramos', 'Litros', 'Docenas', 'Unidades']
+        self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
         # self.unidades.setCurrentIndex(0)  # hace que la unidad a mostrar sea la primera
 
         # self.ingredientes = {}
@@ -81,6 +81,9 @@ class View(QMainWindow, form_class):
     def cerrar(self):
         self.cerrarSignal.emit()
 
+    def confirmar(self):
+        self.confirmarSignal.emit()
+
     def mostrarRecetas(self):
         pass
 
@@ -88,7 +91,10 @@ class View(QMainWindow, form_class):
         pass
 
     def valida(self):
-        pass
+        self.inputCambiadoSignal.emit()
+
+    def finalizar(self):
+        self.finalizarSignal.emit()
 
     def get_ingredientes(self):
         return self.input_ingredientes.text()

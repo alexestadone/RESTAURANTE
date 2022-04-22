@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -471,7 +471,7 @@
       <string>Nombre del plato:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="input_ingredientes_2">
+    <widget class="QLineEdit" name="input_nombre">
      <property name="geometry">
       <rect>
        <x>440</x>
@@ -481,7 +481,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAdd_2">
+    <widget class="QPushButton" name="btnConfirmar">
      <property name="geometry">
       <rect>
        <x>590</x>
@@ -494,7 +494,10 @@
       <string>Confirmar</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_2">
+    <widget class="QPushButton" name="btnFinalizar">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>510</x>
@@ -510,6 +513,30 @@
      </property>
      <property name="text">
       <string>Finalizar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelNombre">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>130</y>
+       <width>421</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>25</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -1054,17 +1081,50 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnConfirmar</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>confirmar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>640</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnFinalizar</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>finalizar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>640</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
   <slot>selvalor()</slot>
   <slot>calcula()</slot>
-  <slot>slot1()</slot>
+  <slot>confirmar()</slot>
   <slot>add_tolist()</slot>
   <slot>irAtras()</slot>
   <slot>anadirPlato()</slot>
   <slot>mostrarRecetas()</slot>
   <slot>crearMenu()</slot>
   <slot>cerrar()</slot>
+  <slot>finalizar()</slot>
  </slots>
 </ui>

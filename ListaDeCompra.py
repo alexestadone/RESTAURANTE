@@ -1,5 +1,6 @@
 import sys
 from PyQt5 import uic
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from View import View
 from Model import Model
@@ -15,10 +16,14 @@ class Restaurante(QMainWindow):
         self.presenter = Presenter(view, model)
         self.setCentralWidget(view)
         self.setWindowTitle('Lista De Compra')
+        self.setFont(QFont("EB Garamond 12 All SC"))
 
 
 def principal():
     app = QApplication(sys.argv)
+    app.setFont(QFont("EB Garamond 12 All SC"), "QLabel")
+    app.setFont(QFont("EB Garamond 12 All SC"), "QPushButton")
+
     MyWindow = Restaurante()
     MyWindow.show()
     app.exec()
