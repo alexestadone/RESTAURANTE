@@ -1,4 +1,11 @@
 from PyQt5 import QtCore
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+
+
+class Prueba:
+    def __init__(self):
+        print("Parece bien")
 
 
 class Model(object):
@@ -44,6 +51,11 @@ class Model(object):
         view.btnFinalizar.setEnabled(False)
 
     def finalizar(self, view):
-        print(view.labelNombre.text())
+        c = canvas.Canvas('prueba.pdf', pagesize=A4)
+        w, h = A4
+
+        c.drawString(50, h-50, view.input_nombre.text())
+        c.showPage()
+        c.save()
 
 

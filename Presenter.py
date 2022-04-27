@@ -7,6 +7,7 @@ class Presenter:
         self.view = view
 
         self.view.platoSignal.connect(self.anadirPlato)
+        self.view.ingrSignal.connect(self.anadirIngrediente)
         self.view.addToListSignal.connect(self.addToList)
         self.view.atrasSignal.connect(self.irAtras)
         self.view.cerrarSignal.connect(sys.exit)
@@ -16,6 +17,9 @@ class Presenter:
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
+
+    def anadirIngrediente(self):
+        self.view.pantallas.setCurrentIndex(2)
 
     def addToList(self):
         ingredientes = self.view.get_ingredientes()
@@ -41,13 +45,12 @@ class Presenter:
 
     def confirmarNombre(self):
         texto = self.view.input_nombre.text()
-        self.view.labelNombre.setText(f"Plato: {texto}")
+        texto += f' ({self.view.tipoDePlato.currentText()})'
+        self.view.labelNombre.setText(f"{texto}")
         self.view.btnConfirmar.setEnabled(False)
         self.view.input_nombre.setEnabled(False)
-
-        if self.view.lista_ing.count() == 0:
-            self.view.btnFinalizar.setEnabled(False)
-        else:
+        self.view.frame_2.setEnabled(True)
+        if self.view.tipoDePlato.currentText() == "Bebida":
             self.view.btnFinalizar.setEnabled(True)
 
     def nombreCambiado(self):

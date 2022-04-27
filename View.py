@@ -27,6 +27,7 @@ stylesheet = """
 
 class View(QMainWindow, form_class):
     platoSignal = QtCore.pyqtSignal()
+    ingrSignal = QtCore.pyqtSignal()
     addToListSignal = QtCore.pyqtSignal()
     atrasSignal = QtCore.pyqtSignal()
     cerrarSignal = QtCore.pyqtSignal()
@@ -41,6 +42,7 @@ class View(QMainWindow, form_class):
         self.setStyleSheet(stylesheet)
         self.distrolist = ['Kilogramos', 'Litros', 'Docenas', 'Unidades']
         self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
+        self.frame_2.setEnabled(False)
         # self.unidades.setCurrentIndex(0)  # hace que la unidad a mostrar sea la primera
 
         # self.ingredientes = {}
@@ -71,6 +73,9 @@ class View(QMainWindow, form_class):
     #
     def anadirPlato(self):  # poner aquí el nombre del slot  y a continuación su código
         self.platoSignal.emit()
+
+    def anadirIngrediente(self):  # poner aquí el nombre del slot  y a continuación su código
+        self.ingrSignal.emit()
 
     def add_tolist(self):
         self.addToListSignal.emit()
