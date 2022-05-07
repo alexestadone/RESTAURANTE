@@ -23,6 +23,9 @@ def principal():
     app = QApplication(sys.argv)
     app.setFont(QFont("EB Garamond 12 All SC"), "QLabel")
     app.setFont(QFont("EB Garamond 12 All SC"), "QPushButton")
+    app.setFont(QFont("EB Garamond 12 All SC"), "QLineEdit")
+    app.setFont(QFont("EB Garamond 12 All SC"), "QComboBox")
+    app.setFont(QFont("EB Garamond 12 All SC"), "QListWidget")
 
     MyWindow = Restaurante()
     MyWindow.show()

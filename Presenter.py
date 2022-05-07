@@ -8,6 +8,7 @@ class Presenter:
 
         self.view.platoSignal.connect(self.anadirPlato)
         self.view.ingrSignal.connect(self.anadirIngrediente)
+        self.view.recetaSignal.connect(self.mostrarRecetas)
         self.view.addToListSignal.connect(self.addToList)
         self.view.atrasSignal.connect(self.irAtras)
         self.view.cerrarSignal.connect(sys.exit)
@@ -20,6 +21,9 @@ class Presenter:
 
     def anadirIngrediente(self):
         self.view.pantallas.setCurrentIndex(2)
+
+    def mostrarRecetas(self):
+        self.view.pantallas.setCurrentIndex(5)
 
     def addToList(self):
         ingredientes = self.view.get_ingredientes()

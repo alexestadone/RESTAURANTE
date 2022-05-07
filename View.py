@@ -21,6 +21,22 @@ stylesheet = """
     {
         background-color: red;
     }
+    
+    #page_2
+    {
+        background-image: url(:/img/img/plato-2.jpg);
+        background-repeat:no-repeat;
+    }
+    
+    #page_6
+    {
+        background-image: url(:/img/img/ingredientes.jpg);
+    }
+    
+    #page_5
+    {
+        background-image: url(:/img/img/receta-2.jpg);
+    }
 
 """
 
@@ -28,6 +44,7 @@ stylesheet = """
 class View(QMainWindow, form_class):
     platoSignal = QtCore.pyqtSignal()
     ingrSignal = QtCore.pyqtSignal()
+    recetaSignal = QtCore.pyqtSignal()
     addToListSignal = QtCore.pyqtSignal()
     atrasSignal = QtCore.pyqtSignal()
     cerrarSignal = QtCore.pyqtSignal()
@@ -90,7 +107,7 @@ class View(QMainWindow, form_class):
         self.confirmarSignal.emit()
 
     def mostrarRecetas(self):
-        pass
+        self.recetaSignal.emit()
 
     def crearMenu(self):
         pass
