@@ -28,6 +28,11 @@ stylesheet = """
         background-repeat:no-repeat;
     }
     
+    #page_3
+    {
+        background-image: url(:/img/img/menu.jpg);
+    }
+    
     #page_6
     {
         background-image: url(:/img/img/ingredientes.jpg);
@@ -44,7 +49,9 @@ stylesheet = """
 class View(QMainWindow, form_class):
     platoSignal = QtCore.pyqtSignal()
     ingrSignal = QtCore.pyqtSignal()
+    finIngSignal = QtCore.pyqtSignal()
     recetaSignal = QtCore.pyqtSignal()
+    menuSignal = QtCore.pyqtSignal()
     addToListSignal = QtCore.pyqtSignal()
     atrasSignal = QtCore.pyqtSignal()
     cerrarSignal = QtCore.pyqtSignal()
@@ -60,39 +67,18 @@ class View(QMainWindow, form_class):
         self.distrolist = ['Kilogramos', 'Litros', 'Docenas', 'Unidades']
         self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
         self.frame_2.setEnabled(False)
-        # self.unidades.setCurrentIndex(0)  # hace que la unidad a mostrar sea la primera
 
-        # self.ingredientes = {}
-
-    # def calc(self, value1, operation, value2):
-    #     if operation == "+":
-    #         self.result = value1 + value2
-    #     elif operation == "-":
-    #         self.result = value1 - value2
-    #     return self.result
-    #
-
-    #
-    #
-    # def valida(self): #nose seguro si hace falta para los lineedit
-    #     texto1 = self.input_cantidades.text()
-    #     texto_cambiado = self.sender().text()
-    #
-    #     if texto1 and texto_cambiado == texto1:
-    #         for letra in texto_cambiado:
-    #             if not letra.isdigit() and letra != '.':
-    #                 self.btnAdd.setEnabled(False)
-    #                 return
-    #         self.btnAdd.setEnabled(True)
-    #
-    # def irAtras(self):  # poner aquí el nombre del slot  y a continuación su código
-    #     self.pantallas.setCurrentIndex(0)
-    #
     def anadirPlato(self):  # poner aquí el nombre del slot  y a continuación su código
         self.platoSignal.emit()
 
     def anadirIngrediente(self):  # poner aquí el nombre del slot  y a continuación su código
         self.ingrSignal.emit()
+
+    def finalizarIngrediente(self):
+        self.finIngSignal.emit();
+
+    def mostrarMenu(self):  # poner aquí el nombre del slot  y a continuación su código
+        self.menuSignal.emit()
 
     def add_tolist(self):
         self.addToListSignal.emit()

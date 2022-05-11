@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -940,8 +940,8 @@
      <widget class="QPushButton" name="btnAtras2">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>460</y>
+        <x>170</x>
+        <y>480</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -952,7 +952,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Atras</string>
+       <string>Volver</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="precioIngrediente">
@@ -1043,27 +1043,6 @@
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnFinalizar_4">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>460</y>
-        <width>111</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Finalizar</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_ingredientes_49">
       <property name="geometry">
        <rect>
@@ -1088,17 +1067,23 @@
     <widget class="QListWidget" name="lista_ing_2">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>100</x>
        <y>200</y>
        <width>171</width>
        <height>421</height>
       </rect>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::WinPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
     </widget>
     <widget class="QLabel" name="label_ingredientes_5">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>130</x>
        <y>160</y>
        <width>121</width>
        <height>20</height>
@@ -1116,7 +1101,7 @@
     <widget class="QLabel" name="label_ingredientes_6">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>340</x>
        <y>160</y>
        <width>121</width>
        <height>20</height>
@@ -1152,7 +1137,7 @@
     <widget class="QLabel" name="label_ingredientes_8">
      <property name="geometry">
       <rect>
-       <x>800</x>
+       <x>776</x>
        <y>160</y>
        <width>91</width>
        <height>20</height>
@@ -1176,31 +1161,49 @@
        <height>421</height>
       </rect>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::WinPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
     </widget>
     <widget class="QListWidget" name="lista_ing_4">
      <property name="geometry">
       <rect>
-       <x>760</x>
+       <x>730</x>
        <y>200</y>
        <width>171</width>
        <height>421</height>
       </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::WinPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
      </property>
     </widget>
     <widget class="QListWidget" name="lista_ing_5">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>310</x>
        <y>200</y>
        <width>171</width>
        <height>421</height>
       </rect>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::WinPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
     </widget>
     <widget class="QPushButton" name="btnAtras_3">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>130</x>
        <y>640</y>
        <width>111</width>
        <height>41</height>
@@ -1236,7 +1239,7 @@
     <widget class="QPushButton" name="btnAtras_4">
      <property name="geometry">
       <rect>
-       <x>350</x>
+       <x>324</x>
        <y>640</y>
        <width>141</width>
        <height>41</height>
@@ -1254,7 +1257,7 @@
     <widget class="QPushButton" name="btnAtras_5">
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>580</x>
        <y>640</y>
        <width>261</width>
        <height>41</height>
@@ -1705,6 +1708,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnMenu</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>mostrarMenu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>862</x>
+     <y>495</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAtras_3</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>irAtras()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAddIngrediente</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>finalizarIngrediente()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>435</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
@@ -1719,5 +1770,7 @@
   <slot>cerrar()</slot>
   <slot>finalizar()</slot>
   <slot>anadirIngrediente()</slot>
+  <slot>mostrarMenu()</slot>
+  <slot>finalizarIngrediente()</slot>
  </slots>
 </ui>

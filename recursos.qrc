@@ -2,9 +2,9 @@
   <qresource prefix="img">
     <file>img/receta-2.jpg</file>
     <file>img/ingredientes.jpg</file>
+    <file>img/menu.jpg</file>
     <file>img/receta.jpg</file>
     <file>img/plato-2.jpg</file>
     <file>img/pizza.jpg</file>
-    <file>img/plato.jpg</file>
   </qresource>
 </RCC>
