@@ -74,12 +74,3 @@ class Presenter:
     def finalizar(self):
         self.model.finalizar(self.view)
         self.model.clean(self.view)
-        self.view.pantallas.setCurrentIndex(0)
-
-
-
-
-
-
-
-

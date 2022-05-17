@@ -2,3 +2,4 @@ patata:8
 leche:2
 tomate:2
 lechuga:3
+arroz:1

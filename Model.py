@@ -106,6 +106,7 @@ class Model(object):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
 
+    def eliminaringrediente(self,view):
+        pass
+
 # TODO: borrar ingrediente (lecha, lehe - błędy)
-
-

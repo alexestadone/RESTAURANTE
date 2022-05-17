@@ -58,6 +58,7 @@ class View(QMainWindow, form_class):
     confirmarSignal = QtCore.pyqtSignal()
     inputCambiadoSignal = QtCore.pyqtSignal()
     finalizarSignal = QtCore.pyqtSignal()
+    eliminaringrSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
@@ -75,7 +76,7 @@ class View(QMainWindow, form_class):
         self.ingrSignal.emit()
 
     def finalizarIngrediente(self):
-        self.finIngSignal.emit();
+        self.finIngSignal.emit()
 
     def mostrarMenu(self):  # poner aquí el nombre del slot  y a continuación su código
         self.menuSignal.emit()
@@ -116,10 +117,5 @@ class View(QMainWindow, form_class):
     def get_todos_cantidades(self):
         return self.lista_cant
 
-    #
-    #
-    # def mostrarRecetas(self):
-    #     pass
-    #
-    # def crearMenu(self):
-    #     pass
+    def eliminaringrediente(self):
+        pass
