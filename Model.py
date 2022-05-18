@@ -13,6 +13,30 @@ class Plato:
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
 
+class Primero(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Segundo(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Postre(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Bebida(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
 class Ingrediente:
     def __init__(self, nombre='Sin nombre', precio=0):
         self.nombre = nombre
