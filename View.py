@@ -58,6 +58,7 @@ class View(QMainWindow, form_class):
     confirmarSignal = QtCore.pyqtSignal()
     inputCambiadoSignal = QtCore.pyqtSignal()
     finalizarSignal = QtCore.pyqtSignal()
+    listaSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
@@ -95,8 +96,8 @@ class View(QMainWindow, form_class):
     def mostrarRecetas(self):
         self.recetaSignal.emit()
 
-    def crearMenu(self):
-        pass
+    def obtenerLista(self):
+        self.listaSignal.emit()
 
     def valida(self):
         self.inputCambiadoSignal.emit()

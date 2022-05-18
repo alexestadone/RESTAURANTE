@@ -1,0 +1,6 @@
+tiramisú:huevos-2.0,biscote-20.0,nata-0.2
+pastel de zanahoria:zanahoria-6.0,huevos-3.0,leche-0.5
+Ensaimada:Harina-0.5,Azúcar-0.05
+XURRO:Aceite-0.1,AZúcar-0.1
+XUXO:nata para montar-0.1,azucar-0.1,harina-0.5
+tarta tatin:manzanas-2.0,harina-0.5,mantequilla-0.25

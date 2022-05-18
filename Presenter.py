@@ -1,4 +1,5 @@
 import sys
+from Model import Receta, Menu, ListaDeCompra
 
 
 class Presenter:
@@ -17,6 +18,7 @@ class Presenter:
         self.view.confirmarSignal.connect(self.confirmarNombre)
         self.view.inputCambiadoSignal.connect(self.nombreCambiado)
         self.view.finalizarSignal.connect(self.finalizar)
+        self.view.listaSignal.connect(self.obtenerLista)
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
@@ -29,9 +31,13 @@ class Presenter:
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)
+        Recetas = Receta()
+        Recetas.mostrarRecetas(self.view)
 
     def mostrarMenu(self):
         self.view.pantallas.setCurrentIndex(3)
+        Menus = Menu()
+        Menus.elegirPlatos(self.view)
 
     def addToList(self):
         ingredientes = self.view.get_ingredientes()
@@ -75,6 +81,11 @@ class Presenter:
         self.model.finalizar(self.view)
         self.model.clean(self.view)
         self.view.pantallas.setCurrentIndex(0)
+
+    def obtenerLista(self):
+        self.view.pantallas.setCurrentIndex(4)
+        lista = ListaDeCompra(self.view)
+
 
 
 

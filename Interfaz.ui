@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -1064,7 +1064,7 @@
     </widget>
    </widget>
    <widget class="QWidget" name="page_3">
-    <widget class="QListWidget" name="lista_ing_2">
+    <widget class="QListWidget" name="mPrimeros">
      <property name="geometry">
       <rect>
        <x>100</x>
@@ -1152,7 +1152,7 @@
       <string>Bebidas:</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_3">
+    <widget class="QListWidget" name="mPostres">
      <property name="geometry">
       <rect>
        <x>520</x>
@@ -1168,7 +1168,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_4">
+    <widget class="QListWidget" name="mBebidas">
      <property name="geometry">
       <rect>
        <x>730</x>
@@ -1184,7 +1184,7 @@
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_5">
+    <widget class="QListWidget" name="mSegundos">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1236,7 +1236,7 @@
       <string>Tu menú</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_4">
+    <widget class="QPushButton" name="btnCrearMenu">
      <property name="geometry">
       <rect>
        <x>324</x>
@@ -1254,7 +1254,7 @@
       <string>Crear de nuevo</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_5">
+    <widget class="QPushButton" name="btnLista">
      <property name="geometry">
       <rect>
        <x>580</x>
@@ -1292,7 +1292,7 @@
       <string>Tu lista de compra</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_6">
+    <widget class="QListWidget" name="listaDeCompra">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -1376,7 +1376,7 @@
       <string>Atras</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_7">
+    <widget class="QListWidget" name="segundos">
      <property name="geometry">
       <rect>
        <x>373</x>
@@ -1386,7 +1386,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_8">
+    <widget class="QListWidget" name="postres">
      <property name="geometry">
       <rect>
        <x>557</x>
@@ -1414,7 +1414,7 @@
       <string>Segundos:</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_9">
+    <widget class="QListWidget" name="bebidas">
      <property name="geometry">
       <rect>
        <x>732</x>
@@ -1442,7 +1442,7 @@
       <string>Bebidas:</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_10">
+    <widget class="QListWidget" name="primeros">
      <property name="geometry">
       <rect>
        <x>198</x>
@@ -1525,22 +1525,6 @@
     <hint type="sourcelabel">
      <x>334</x>
      <y>392</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>254</x>
-     <y>214</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnMenu</sender>
-   <signal>clicked()</signal>
-   <receiver>formulario</receiver>
-   <slot>crearMenu()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>250</x>
-     <y>325</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
@@ -1756,6 +1740,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnCrearMenu</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>mostrarMenu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>394</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnLista</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>obtenerLista()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAtras_6</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>irAtras()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>640</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
@@ -1766,7 +1798,7 @@
   <slot>irAtras()</slot>
   <slot>anadirPlato()</slot>
   <slot>mostrarRecetas()</slot>
-  <slot>crearMenu()</slot>
+  <slot>obtenerLista()</slot>
   <slot>cerrar()</slot>
   <slot>finalizar()</slot>
   <slot>anadirIngrediente()</slot>

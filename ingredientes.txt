@@ -1,4 +1,4 @@
-patata:8
+patata:10
 leche:2
 tomate:2
-lechuga:3
+lechuga:3.5

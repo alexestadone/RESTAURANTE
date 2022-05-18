@@ -1,3 +1,5 @@
+import random
+
 from PyQt5 import QtCore
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -9,6 +11,30 @@ class Plato:
         self.ingredientes = ingredientes[:-1]
 
     def guardar(self, file):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Primero(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Segundo(Plato):
+    def guardar(self, file='segundos.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Postre(Plato):
+    def guardar(self, file='postres.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Bebida(Plato):
+    def guardar(self, file='bebidas.txt'):
         with open(file, 'a') as f:
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
@@ -38,6 +64,113 @@ class Ingrediente:
             with open(file, 'w') as f:
                 for line in new_lines:
                     f.write(line)
+
+
+class Receta:
+    def __init__(self):
+        self.Primeros = []
+        self.Segundos = []
+        self.Postres = []
+        self.Bebidas = []
+
+        with open('primeros.txt') as f:
+            for line in f.readlines():
+                self.Primeros.append(Primero(line.split(':')[0], line.split(':')[1]))
+
+        with open('segundos.txt') as f:
+            for line in f.readlines():
+                self.Segundos.append(Segundo(line.split(':')[0], line.split(':')[1]))
+
+        with open('postres.txt') as f:
+            for line in f.readlines():
+                self.Postres.append(Postre(line.split(':')[0], line.split(':')[1]))
+
+        with open('bebidas.txt') as f:
+            for line in f.readlines():
+                self.Bebidas.append(Bebida(line.split(':')[0], line.split(':')[1]))
+
+    def mostrarRecetas(self, view, menu=0):
+
+        if not menu:
+            view.primeros.clear()
+            view.segundos.clear()
+            view.postres.clear()
+            view.bebidas.clear()
+            for el in self.Primeros:
+                view.primeros.addItem(el.nombre)
+            for el in self.Segundos:
+                view.segundos.addItem(el.nombre)
+            for el in self.Postres:
+                view.postres.addItem(el.nombre)
+            for el in self.Bebidas:
+                view.bebidas.addItem(el.nombre)
+        else:
+            view.mPrimeros.clear()
+            view.mSegundos.clear()
+            view.mPostres.clear()
+            view.mBebidas.clear()
+            for el in self.Primeros:
+                view.mPrimeros.addItem(el.nombre)
+            for el in self.Segundos:
+                view.mSegundos.addItem(el.nombre)
+            for el in self.Postres:
+                view.mPostres.addItem(el.nombre)
+            for el in self.Bebidas:
+                view.mBebidas.addItem(el.nombre)
+
+class Menu(Receta):
+
+    def elegirPlatos(self, view):
+        Recetas = Receta()
+        self.Primeros = []
+        self.Segundos = []
+        self.Postres = []
+        self.Bebidas = []
+
+        primero = Recetas.Primeros[random.randint(0, 2000) % len(Recetas.Primeros)]
+        while len(self.Primeros) < min(5, len(Recetas.Primeros)):
+            if primero not in self.Primeros:
+                self.Primeros.append(primero)
+            primero = Recetas.Primeros[random.randint(0, 2000) % len(Recetas.Primeros)]
+
+        segundo = Recetas.Segundos[random.randint(0, 2000) % len(Recetas.Segundos)]
+        while len(self.Segundos) < min(5, len(Recetas.Segundos)):
+            if Segundo not in self.Segundos:
+                self.Segundos.append(segundo)
+            segundo = Recetas.Segundos[random.randint(0, 2000) % len(Recetas.Segundos)]
+
+        postre = Recetas.Postres[random.randint(0, 2000) % len(Recetas.Postres)]
+        while len(self.Postres) < min(5, len(Recetas.Postres)):
+            if postre not in self.Postres:
+                self.Postres.append(postre)
+            postre = Recetas.Postres[random.randint(0, 2000) % len(Recetas.Postres)]
+
+        bebida = Recetas.Bebidas[random.randint(0, 2000) % len(Recetas.Bebidas)]
+        while len(self.Bebidas) < min(5, len(Recetas.Bebidas)):
+            if bebida not in self.Bebidas:
+                self.Bebidas.append(bebida)
+            bebida = Recetas.Bebidas[random.randint(0, 2000) % len(Recetas.Bebidas)]
+
+        self.mostrarRecetas(view, menu=1)
+
+class ListaDeCompra:
+    def __init__(self, view):
+        self.Primeros = [view.mPrimeros.item(i).text() for i in range(view.mPrimeros.count())]
+        self.Segundos = [view.mSegundos.item(i).text() for i in range(view.mSegundos.count())]
+        self.Postres = [view.mPostres.item(i).text() for i in range(view.mPostres.count())]
+        self.Bebidas = [view.mBebidas.item(i).text() for i in range(view.mBebidas.count())]
+        self.ingredientes = {}
+
+        with open('primeros.txt', 'r') as f:
+            for line in f.readlines():
+                if line.split(':')[0] in self.Primeros:
+                    ingredientes = line.split(':')[1]
+                    for ingrediente in ingredientes.split(','):
+                        if not self.ingredientes.get(ingrediente.split('-')[0]):
+                            self.ingredientes[ingrediente.split('-')[0]] = 0
+                        self.ingredientes[ingrediente.split('-')[0]] += int(self.ingredientes[ingrediente.split('-')[0]])
+        for k in self.ingredientes:
+            view.listaDeCompra.addItem(f'{k} -> {self.ingredientes[k]}')
 
 
 class Model(object):
@@ -91,8 +224,19 @@ class Model(object):
             ingredientes += view.lista_cant.item(i).text().split(' ')[0]
             ingredientes += ','
 
-        platoNuevo = Plato(view.input_nombre.text(), ingredientes)
-        platoNuevo.guardar('platos.txt')
+        if view.tipoDePlato.currentText().lower() == 'primero':
+            platoNuevo = Primero(view.input_nombre.text(), ingredientes)
+        elif view.tipoDePlato.currentText().lower() == 'segundo':
+            platoNuevo = Segundo(view.input_nombre.text(), ingredientes)
+
+        elif view.tipoDePlato.currentText().lower() == 'postre':
+            platoNuevo = Postre(view.input_nombre.text(), ingredientes)
+        else:
+            platoNuevo = Bebida(view.input_nombre.text(), ingredientes)
+
+        platoNuevo.guardar()
+
+        # platoNuevo.guardar('platos.txt')
         # c = canvas.Canvas('prueba.pdf', pagesize=A4)
         # w, h = A4
         #
