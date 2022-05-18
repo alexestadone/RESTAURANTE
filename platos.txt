@@ -1,2 +1,0 @@
-tortilla de patatas:patatas-5.0,tomates-3.0
-sopa de patatas:patatas-10.0,agua-10.0

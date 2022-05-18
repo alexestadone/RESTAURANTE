@@ -1,0 +1,2 @@
+Sopa de cebolla:cebolla-4.0
+Sopa de patatas:patatas-10.0,agua-10.0

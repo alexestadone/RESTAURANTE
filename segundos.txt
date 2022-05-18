@@ -1,0 +1,4 @@
+tortilla:harina-0.6
+tortilla de patatas:patatas-5.0,tomates-3.0
+pizza:harina-2.0
+paella:arroz-1.0,tomate-1.0
