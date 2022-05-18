@@ -13,6 +13,30 @@ class Plato:
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
 
+class Primero(Plato):
+    def guardar(self, file='primeros.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Segundo(Plato):
+    def guardar(self, file='segundos.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Postre(Plato):
+    def guardar(self, file='postres.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
+class Bebida(Plato):
+    def guardar(self, file='bebidas.txt'):
+        with open(file, 'a') as f:
+            f.write(self.nombre + ':' + self.ingredientes + '\n')
+
+
 class Ingrediente:
     def __init__(self, nombre='Sin nombre', precio=0):
         self.nombre = nombre
@@ -84,15 +108,25 @@ class Model(object):
 
     def finalizar(self, view):
         ingredientes = ''
-        print(view.lista_ing.count())
         for i in range(view.lista_ing.count()):
             ingredientes += view.lista_ing.item(i).text()
             ingredientes += '-'
             ingredientes += view.lista_cant.item(i).text().split(' ')[0]
             ingredientes += ','
 
-        platoNuevo = Plato(view.input_nombre.text(), ingredientes)
-        platoNuevo.guardar('platos.txt')
+        if view.tipoDePlato.currentText().lower() == "primero":
+            platoNuevo = Primero(view.input_nombre.text(), ingredientes)
+
+        elif view.tipoDePlato.currentText().lower() == "segundo":
+            platoNuevo = Segundo(view.input_nombre.text(), ingredientes)
+
+        elif view.tipoDePlato.currentText().lower() == "bebida":
+            platoNuevo = Bebida(view.input_nombre.text(), ingredientes)
+
+        else:
+            platoNuevo = Postre(view.input_nombre.text(), ingredientes)
+
+        platoNuevo.guardar()
         # c = canvas.Canvas('prueba.pdf', pagesize=A4)
         # w, h = A4
         #

@@ -75,7 +75,7 @@ class View(QMainWindow, form_class):
         self.ingrSignal.emit()
 
     def finalizarIngrediente(self):
-        self.finIngSignal.emit();
+        self.finIngSignal.emit()
 
     def mostrarMenu(self):  # poner aquí el nombre del slot  y a continuación su código
         self.menuSignal.emit()
