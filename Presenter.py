@@ -1,4 +1,5 @@
 import sys
+from Model import Receta
 
 
 class Presenter:
@@ -29,9 +30,12 @@ class Presenter:
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)
+        RecetaNueva = Receta()
+        RecetaNueva.mostrarPlatos(self.view)
 
     def mostrarMenu(self):
         self.view.pantallas.setCurrentIndex(3)
+
 
     def addToList(self):
         ingredientes = self.view.get_ingredientes()

@@ -31,7 +31,11 @@ class Postre(Plato):
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
 
-class Bebida(Plato):
+class Bebida():
+    def __init__(self, nombre, ingredientes):
+        self.nombre = nombre
+        self.ingredientes = ingredientes[:-1]
+
     def guardar(self, file='bebidas.txt'):
         with open(file, 'a') as f:
             f.write(self.nombre + ':' + self.ingredientes + '\n')
@@ -62,6 +66,38 @@ class Ingrediente:
             with open(file, 'w') as f:
                 for line in new_lines:
                     f.write(line)
+
+class Receta:
+    def __init__(self):
+        self.Primeros = []
+        self.Segundos = []
+        self.Postres = []
+        self.Bebidas = []
+        with open("primeros.txt", 'r') as f:
+            for line in f.readlines():
+                self.Primeros.append(Primero(line.split(':')[0], line.split(':')[1]))
+
+        with open("segundos.txt", 'r') as f:
+            for line in f.readlines():
+                self.Segundos.append(Segundo(line.split(':')[0], line.split(':')[1]))
+
+        with open("postres.txt", 'r') as f:
+            for line in f.readlines():
+                self.Postres.append(Postre(line.split(':')[0], line.split(':')[1]))
+
+        with open("bebidas.txt", 'r') as f:
+            for line in f.readlines():
+                self.Bebidas.append(Bebida(line.split(':')[0], line.split(':')[1]))
+
+    def mostrarPlatos(self, view):
+        for primero in self.Primeros:
+            view.primeros.addItem(primero.nombre)
+        for segundo in self.Segundos:
+            view.segundos.addItem(segundo.nombre)
+        for postre in self.Postres:
+            view.postres.addItem(postre.nombre)
+        for bebida in self.Bebidas:
+            view.bebidas.addItem(bebida.nombre)
 
 
 class Model(object):

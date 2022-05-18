@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>5</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -1376,7 +1376,7 @@
       <string>Atras</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_7">
+    <widget class="QListWidget" name="segundos">
      <property name="geometry">
       <rect>
        <x>373</x>
@@ -1386,7 +1386,7 @@
       </rect>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_8">
+    <widget class="QListWidget" name="postres">
      <property name="geometry">
       <rect>
        <x>557</x>
@@ -1414,7 +1414,7 @@
       <string>Segundos:</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_9">
+    <widget class="QListWidget" name="bebidas">
      <property name="geometry">
       <rect>
        <x>732</x>
@@ -1442,7 +1442,7 @@
       <string>Bebidas:</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_10">
+    <widget class="QListWidget" name="primeros">
      <property name="geometry">
       <rect>
        <x>198</x>
