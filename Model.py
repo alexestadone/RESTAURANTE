@@ -1,4 +1,5 @@
 from PyQt5 import QtCore
+import random
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 
@@ -31,7 +32,7 @@ class Postre(Plato):
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
 
-class Bebida():
+class Bebida:
     def __init__(self, nombre, ingredientes):
         self.nombre = nombre
         self.ingredientes = ingredientes[:-1]
@@ -67,6 +68,7 @@ class Ingrediente:
                 for line in new_lines:
                     f.write(line)
 
+
 class Receta:
     def __init__(self):
         self.Primeros = []
@@ -89,15 +91,60 @@ class Receta:
             for line in f.readlines():
                 self.Bebidas.append(Bebida(line.split(':')[0], line.split(':')[1]))
 
-    def mostrarPlatos(self, view):
-        for primero in self.Primeros:
-            view.primeros.addItem(primero.nombre)
-        for segundo in self.Segundos:
-            view.segundos.addItem(segundo.nombre)
-        for postre in self.Postres:
-            view.postres.addItem(postre.nombre)
-        for bebida in self.Bebidas:
-            view.bebidas.addItem(bebida.nombre)
+    def mostrarPlatos(self, view, menu=0):
+        view.primeros.clear()
+        view.segundos.clear()
+        view.postres.clear()
+        view.bebidas.clear()
+
+        view.mprimeros.clear()
+        view.msegundos.clear()
+        view.mpostres.clear()
+        view.mbebidas.clear()
+        if menu == 0:
+            for primero in self.Primeros:
+                view.primeros.addItem(primero.nombre)
+            for segundo in self.Segundos:
+                view.segundos.addItem(segundo.nombre)
+            for postre in self.Postres:
+                view.postres.addItem(postre.nombre)
+            for bebida in self.Bebidas:
+                view.bebidas.addItem(bebida.nombre)
+        else:
+            for primero in self.Primeros:
+                view.mprimeros.addItem(primero.nombre)
+            for segundo in self.Segundos:
+                view.msegundos.addItem(segundo.nombre)
+            for postre in self.Postres:
+                view.mpostres.addItem(postre.nombre)
+            for bebida in self.Bebidas:
+                view.mbebidas.addItem(bebida.nombre)
+
+
+def alea(b, n):
+    lista = []
+    while len(lista) < n:
+        a = random.randint(0, b-1)
+        if a not in lista:
+            lista.append(a)
+    return lista
+
+
+class Menu(Receta):
+    def elegirPlatos(self, view):
+        lista = [self.Primeros[i] for i in alea(len(self.Primeros), min(5, len(self.Primeros)))]
+        self.Primeros = lista
+
+        lista = [self.Segundos[i] for i in alea(len(self.Segundos), min(5, len(self.Segundos)))]
+        self.Segundos = lista
+
+        lista = [self.Postres[i] for i in alea(len(self.Postres), min(5, len(self.Postres)))]
+        self.Postres = lista
+
+        lista = [self.Bebidas[i] for i in alea(len(self.Bebidas), min(5, len(self.Bebidas)))]
+        self.Bebidas = lista
+
+        self.mostrarPlatos(view, menu=1)
 
 
 class Model(object):

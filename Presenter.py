@@ -1,5 +1,6 @@
 import sys
 from Model import Receta
+from Model import Menu
 
 
 class Presenter:
@@ -35,6 +36,8 @@ class Presenter:
 
     def mostrarMenu(self):
         self.view.pantallas.setCurrentIndex(3)
+        MenuNuevo = Menu()
+        MenuNuevo.elegirPlatos(self.view)
 
 
     def addToList(self):
