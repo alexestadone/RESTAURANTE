@@ -42,6 +42,11 @@ stylesheet = """
     {
         background-image: url(:/img/img/receta-2.jpg);
     }
+    
+    #page_4
+    {
+        background-image: url(:/img/img/lista.jpg);
+    }
 
 """
 
