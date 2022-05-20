@@ -85,7 +85,6 @@ class Presenter:
 
     def lista(self):
         self.view.pantallas.setCurrentIndex(4)
-        self.model.lista(self.view)
 
 
 
