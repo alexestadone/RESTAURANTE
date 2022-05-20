@@ -131,6 +131,30 @@ def alea(b, n):
 
 
 class Menu(Receta):
+    def listaDeCompra(self, view):
+        ingredientes = {}
+
+        def guardar(categoria):
+            for primero in categoria:
+                for ingrediente in primero.ingredientes.split(','):
+                    if not ingrediente:
+                        continue
+                    nombre = ingrediente.split('-')[0]
+                    valor = float(ingrediente.split('-')[1])
+                    if not ingredientes.get(nombre):
+                        ingredientes[nombre] = valor
+                    else:
+                        ingredientes[nombre] += valor
+
+        guardar(self.Primeros)
+        guardar(self.Segundos)
+        guardar(self.Postres)
+        guardar(self.Bebidas)
+
+        view.listaDeCompra.clear()
+        for key in ingredientes:
+            view.listaDeCompra.addItem(f"{key} -> {ingredientes[key]}")
+
     def elegirPlatos(self, view):
         lista = [self.Primeros[i] for i in alea(len(self.Primeros), min(5, len(self.Primeros)))]
         self.Primeros = lista
@@ -145,6 +169,7 @@ class Menu(Receta):
         self.Bebidas = lista
 
         self.mostrarPlatos(view, menu=1)
+        self.listaDeCompra(view)
 
 
 class Model(object):
@@ -222,6 +247,9 @@ class Model(object):
     def anadirIngrediente(self, view):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
+
+    def lista(self, view):
+        print("dziala")
 
 # TODO: borrar ingrediente (lecha, lehe - błędy)
 
