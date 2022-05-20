@@ -248,8 +248,6 @@ class Model(object):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
 
-    def lista(self, view):
-        print("dziala")
 
 # TODO: borrar ingrediente (lecha, lehe - błędy)
 
