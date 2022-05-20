@@ -1254,7 +1254,7 @@
       <string>Crear de nuevo</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_5">
+    <widget class="QPushButton" name="btnLista">
      <property name="geometry">
       <rect>
        <x>580</x>
@@ -1772,6 +1772,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnLista</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>lista()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>710</x>
+     <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
@@ -1788,5 +1804,6 @@
   <slot>anadirIngrediente()</slot>
   <slot>mostrarMenu()</slot>
   <slot>finalizarIngrediente()</slot>
+  <slot>lista()</slot>
  </slots>
 </ui>

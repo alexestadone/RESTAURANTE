@@ -58,6 +58,7 @@ class View(QMainWindow, form_class):
     confirmarSignal = QtCore.pyqtSignal()
     inputCambiadoSignal = QtCore.pyqtSignal()
     finalizarSignal = QtCore.pyqtSignal()
+    listaSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
@@ -115,6 +116,9 @@ class View(QMainWindow, form_class):
 
     def get_todos_cantidades(self):
         return self.lista_cant
+
+    def lista(self):
+        self.listaSignal.emit()
 
     #
     #
