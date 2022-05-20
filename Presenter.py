@@ -1,5 +1,6 @@
 import sys
 from Model import Receta
+from Model import Menu
 
 
 class Presenter:
@@ -18,6 +19,7 @@ class Presenter:
         self.view.confirmarSignal.connect(self.confirmarNombre)
         self.view.inputCambiadoSignal.connect(self.nombreCambiado)
         self.view.finalizarSignal.connect(self.finalizar)
+        self.view.listaSignal.connect(self.lista)
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
@@ -35,6 +37,8 @@ class Presenter:
 
     def mostrarMenu(self):
         self.view.pantallas.setCurrentIndex(3)
+        MenuNuevo = Menu()
+        MenuNuevo.elegirPlatos(self.view)
 
 
     def addToList(self):
@@ -79,6 +83,9 @@ class Presenter:
         self.model.finalizar(self.view)
         self.model.clean(self.view)
         self.view.pantallas.setCurrentIndex(0)
+
+    def lista(self):
+        self.view.pantallas.setCurrentIndex(4)
 
 
 
