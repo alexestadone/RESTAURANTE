@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>4</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -1292,7 +1292,7 @@
       <string>Tu lista de compra</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="lista_ing_6">
+    <widget class="QListWidget" name="listaDeCompra">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -1781,6 +1781,22 @@
     <hint type="sourcelabel">
      <x>710</x>
      <y>660</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAtras_6</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>irAtras()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>640</y>
     </hint>
     <hint type="destinationlabel">
      <x>499</x>

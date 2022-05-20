@@ -40,7 +40,6 @@ class Presenter:
         MenuNuevo = Menu()
         MenuNuevo.elegirPlatos(self.view)
 
-
     def addToList(self):
         ingredientes = self.view.get_ingredientes()
         cantidades = self.view.get_cantidades()
