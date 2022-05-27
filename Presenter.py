@@ -20,6 +20,7 @@ class Presenter:
         self.view.inputCambiadoSignal.connect(self.nombreCambiado)
         self.view.finalizarSignal.connect(self.finalizar)
         self.view.listaSignal.connect(self.lista)
+        self.view.exportarSignal.connect(self.exportar)
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
@@ -85,6 +86,10 @@ class Presenter:
 
     def lista(self):
         self.view.pantallas.setCurrentIndex(4)
+
+    def exportar(self):
+        self.model.exportar(self.view)
+        self.view.pantallas.setCurrentIndex(0)
 
 
 

@@ -2,3 +2,4 @@ tortilla:harina-0.6
 tortilla de patatas:patatas-5.0,tomates-3.0
 pizza:harina-2.0
 paella:arroz-1.0,tomate-1.0
+Gazpacho:tomate-1.0,pimiento Verde-1.0,pepino-1.0,ajo-2.0,aceite de oliva-0.05,pan-0.05,agua-0.25,sal-0.005,vinagre-0.03
