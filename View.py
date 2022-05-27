@@ -64,6 +64,7 @@ class View(QMainWindow, form_class):
     inputCambiadoSignal = QtCore.pyqtSignal()
     finalizarSignal = QtCore.pyqtSignal()
     listaSignal = QtCore.pyqtSignal()
+    exportarSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
@@ -125,10 +126,5 @@ class View(QMainWindow, form_class):
     def lista(self):
         self.listaSignal.emit()
 
-    #
-    #
-    # def mostrarRecetas(self):
-    #     pass
-    #
-    # def crearMenu(self):
-    #     pass
+    def exportar(self):
+        self.exportarSignal.emit()

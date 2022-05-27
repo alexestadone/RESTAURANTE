@@ -1320,7 +1320,7 @@
       <string>Volver al inicio</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnAtras_7">
+    <widget class="QPushButton" name="btnExportar">
      <property name="geometry">
       <rect>
        <x>580</x>
@@ -1804,6 +1804,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnExportar</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>exportar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>660</x>
+     <y>640</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
@@ -1821,5 +1837,6 @@
   <slot>mostrarMenu()</slot>
   <slot>finalizarIngrediente()</slot>
   <slot>lista()</slot>
+  <slot>exportar()</slot>
  </slots>
 </ui>
