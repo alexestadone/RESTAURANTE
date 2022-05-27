@@ -89,6 +89,7 @@ class Presenter:
 
     def exportar(self):
         self.model.exportar(self.view)
+        self.view.pantallas.setCurrentIndex(0)
 
 
 
