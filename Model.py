@@ -152,7 +152,7 @@ class Menu(Receta):
 
         view.listaDeCompra.clear()
         for key in ingredientes:
-            view.listaDeCompra.addItem(f"{key} -> {ingredientes[key]}")
+            view.listaDeCompra.addItem(f"{key} -> {round(ingredientes[key], 3)}")
 
     def elegirPlatos(self, view):
         lista = [self.Primeros[i] for i in alea(len(self.Primeros), min(5, len(self.Primeros)))]
@@ -174,14 +174,16 @@ class Menu(Receta):
 class Model(object):
     def __init__(self):
         self.ingredientes = {}
+        self.unidades = {'Litros': [1, 'Litros'], 'Kilogramos': [1, 'Kilogramos'], 'Unidades': [1, 'Unidades'],
+                         'Dientes': [1, 'Dientes'], 'Mililitros': [1000, 'Litros'], 'Gramos': [1000, 'Kilogramos']}
 
     def add_tolist(self, ing, cant, tod_ing, tod_cant, unidad):
         if self.ingredientes.get(ing) is None:
             self.ingredientes[ing] = cant
             tod_ing.addItem(ing)
-            tod_cant.addItem(f'{cant} {unidad}')
+            tod_cant.addItem(f'{round(cant/self.unidades[unidad][0],3)} {self.unidades[unidad][1]}')
         else:
-            self.ingredientes[ing] += float(cant)
+            self.ingredientes[ing] += round(float(cant/self.unidades[unidad][0]), 3)
             fila = tod_ing.findItems(ing, QtCore.Qt.MatchExactly)
             numeroDeFila = tod_ing.row(*fila)
 
@@ -238,7 +240,6 @@ class Model(object):
     def anadirIngrediente(self, view):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
-
 
     def exportar(self, view):
         from PyQt5.QtWidgets import QMessageBox

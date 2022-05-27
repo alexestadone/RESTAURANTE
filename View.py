@@ -71,7 +71,7 @@ class View(QMainWindow, form_class):
         self.setupUi(self)  # Constructor Formulario Designer Cargamos el formulario
         self.pantallas.setCurrentIndex(0)
         self.setStyleSheet(stylesheet)
-        self.distrolist = ['Kilogramos', 'Litros', 'Docenas', 'Unidades']
+        self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
         self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
         self.frame_2.setEnabled(False)
 
