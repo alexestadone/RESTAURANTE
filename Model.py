@@ -241,20 +241,23 @@ class Model(object):
 
 
     def exportar(self, view):
-        # from reportlab.pdfgen import canvas
-        # from reportlab.lib.pagesizes import A4
+        from PyQt5.QtWidgets import QMessageBox
         from fpdf import FPDF
         from datetime import date
         pdf = FPDF()
         pdf.set_margins(20, 20, 20)
         pdf.add_page()
         pdf.set_font("Arial", size=15)
-
-        texto = [view.listaDeCompra.item(i).text() for i in range(view.listaDeCompra.count())]
+        texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
             pdf.cell(300, 10, txt=el, ln=i+1, align='L')
 
         pdf.output(f"ListaDeCompra_{date.today()}.pdf")
+        msg = QMessageBox()
+        msg.setText("Enviado al PDF.")
+        msg.setIcon(1)
+        msg.exec()
+
 
 
 
