@@ -1,7 +1,6 @@
 from PyQt5 import QtCore
 import random
-from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import A4
+
 
 
 class Plato:
@@ -235,18 +234,28 @@ class Model(object):
             platoNuevo = Postre(view.input_nombre.text(), ingredientes)
 
         platoNuevo.guardar()
-        # c = canvas.Canvas('prueba.pdf', pagesize=A4)
-        # w, h = A4
-        #
-        #
-        #
-        # c.drawString(50, h-50, view.input_nombre.text())
-        # c.showPage()
-        # c.save()
 
     def anadirIngrediente(self, view):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
+
+
+    def exportar(self, view):
+        # from reportlab.pdfgen import canvas
+        # from reportlab.lib.pagesizes import A4
+        from fpdf import FPDF
+        from datetime import date
+        pdf = FPDF()
+        pdf.set_margins(20, 20, 20)
+        pdf.add_page()
+        pdf.set_font("Arial", size=15)
+
+        texto = [view.listaDeCompra.item(i).text() for i in range(view.listaDeCompra.count())]
+        for i, el in enumerate(texto):
+            pdf.cell(300, 10, txt=el, ln=i+1, align='L')
+
+        pdf.output(f"ListaDeCompra_{date.today()}.pdf")
+
 
 
 # TODO: borrar ingrediente (lecha, lehe - błędy)
