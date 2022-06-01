@@ -73,6 +73,7 @@ class View(QMainWindow, form_class):
         self.setStyleSheet(stylesheet)
         self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
         self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
+        self.unidades_ingr.addItems(self.distrolist)
         self.frame_2.setEnabled(False)
 
     def anadirPlato(self):  # poner aquí el nombre del slot  y a continuación su código

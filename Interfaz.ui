@@ -79,7 +79,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -902,7 +902,7 @@
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <widget class="QComboBox" name="unidades_4">
+     <widget class="QComboBox" name="unidades_ingr">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -916,26 +916,6 @@
         <pointsize>15</pointsize>
        </font>
       </property>
-      <item>
-       <property name="text">
-        <string>Kilogramos</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Litros</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Docenas</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Unidades</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="btnAtras2">
       <property name="geometry">

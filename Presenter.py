@@ -51,6 +51,7 @@ class Presenter:
         # llamar la función para añadir un ingrediente a la lista
         self.model.add_tolist(ingredientes, cantidades, todos_ingredientes, todos_cantidades, unidad)
 
+        self.view.btnAdd.setEnabled(0)
         self.view.input_ingredientes.setText('')
         self.view.input_cantidades.setText('')
 
@@ -82,6 +83,7 @@ class Presenter:
     def finalizar(self):
         self.model.finalizar(self.view)
         self.model.clean(self.view)
+        self.view.frame_2.setEnabled(0)
         self.view.pantallas.setCurrentIndex(0)
 
     def lista(self):
