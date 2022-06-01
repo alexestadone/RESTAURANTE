@@ -1,10 +1,8 @@
-import sys
-from PyQt5 import uic, QtWidgets, QtCore, QtGui
-from PyQt5.QtWidgets import QMessageBox, QMainWindow, QDialog
-from PyQt5.QtGui import QFont
+from PyQt5 import uic, QtCore
+from PyQt5.QtWidgets import QMainWindow
 
-form_class = uic.loadUiType('Interfaz.ui')[0]
 
+# estilo de las ventanas
 stylesheet = """
     #page
     {
@@ -50,8 +48,12 @@ stylesheet = """
 
 """
 
+# cargar el interfaz de Qt Designer
+form_class = uic.loadUiType('Interfaz.ui')[0]
+
 
 class View(QMainWindow, form_class):
+    # señales usadas
     platoSignal = QtCore.pyqtSignal()
     ingrSignal = QtCore.pyqtSignal()
     finIngSignal = QtCore.pyqtSignal()
@@ -67,25 +69,29 @@ class View(QMainWindow, form_class):
     exportarSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
-        QMainWindow.__init__(self, parent)
-        self.setupUi(self)  # Constructor Formulario Designer Cargamos el formulario
-        self.pantallas.setCurrentIndex(0)
+        # especificar el estilo
         self.setStyleSheet(stylesheet)
-        self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
-        self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
-        self.unidades_ingr.addItems(self.distrolist)
-        self.frame_2.setEnabled(False)
 
-    def anadirPlato(self):  # poner aquí el nombre del slot  y a continuación su código
+        # cargar el formulario
+        QMainWindow.__init__(self, parent)
+        self.setupUi(self)
+
+        # configuraciones iniciales
+        self.pantallas.setCurrentIndex(0)
+        self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
+        self.unidades.addItems(self.distrolist)
+        self.unidades_ingr.addItems(self.distrolist)
+
+    def anadirPlato(self):
         self.platoSignal.emit()
 
-    def anadirIngrediente(self):  # poner aquí el nombre del slot  y a continuación su código
+    def anadirIngrediente(self):
         self.ingrSignal.emit()
 
     def finalizarIngrediente(self):
         self.finIngSignal.emit()
 
-    def mostrarMenu(self):  # poner aquí el nombre del slot  y a continuación su código
+    def mostrarMenu(self):
         self.menuSignal.emit()
 
     def add_tolist(self):
