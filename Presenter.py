@@ -24,6 +24,7 @@ class Presenter:
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
+        self.view.frame_2.setEnabled(False)
 
     def anadirIngrediente(self):
         self.view.pantallas.setCurrentIndex(2)
