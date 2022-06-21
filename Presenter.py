@@ -1,6 +1,7 @@
 import sys
 from Model import Receta
 from Model import Menu
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Presenter:
@@ -31,6 +32,8 @@ class Presenter:
 
     def finalizarIngrediente(self):
         self.model.anadirIngrediente(self.view)
+        mensajeInfo("El ingrediente ya está añadido.")
+        print("prueba")
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)
@@ -86,6 +89,7 @@ class Presenter:
         self.model.clean(self.view)
         self.view.frame_2.setEnabled(0)
         self.view.pantallas.setCurrentIndex(0)
+        mensajeInfo("El plato ya está añadido.")
 
     def lista(self):
         self.view.pantallas.setCurrentIndex(4)
@@ -93,6 +97,13 @@ class Presenter:
     def exportar(self):
         self.model.exportar(self.view)
         self.view.pantallas.setCurrentIndex(0)
+
+
+def mensajeInfo(texto):
+    msg = QMessageBox()
+    msg.setText(texto)
+    msg.setIcon(1)
+    msg.exec()
 
 
 
