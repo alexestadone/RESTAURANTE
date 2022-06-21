@@ -69,12 +69,12 @@ class View(QMainWindow, form_class):
     exportarSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
-        # especificar el estilo
-        self.setStyleSheet(stylesheet)
-
         # cargar el formulario
         QMainWindow.__init__(self, parent)
         self.setupUi(self)
+
+        # especificar el estilo
+        self.setStyleSheet(stylesheet)
 
         # configuraciones iniciales
         self.pantallas.setCurrentIndex(0)

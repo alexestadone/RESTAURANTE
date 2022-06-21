@@ -240,6 +240,8 @@ class Model(object):
     def anadirIngrediente(self, view):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
+        view.nombreIngrediente.setText("")
+        view.precioIngrediente.setText("")
 
     def exportar(self, view):
         from PyQt5.QtWidgets import QMessageBox
