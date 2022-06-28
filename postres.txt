@@ -1,6 +1,6 @@
-tiramisú:huevos-4.0
-churros:harina de trigo-0.25,Agua-0.25,sal-0.008
+Tiramisú:huevos-4.0
+Churros:harina de trigo-0.25,Agua-0.25,sal-0.008
 Galletas de chocolate:copos de avena-0.08,almendras-0.06,chocolate-0.03
-bizcocho:harina de trigo-0.225,Agua-0.2,azúcar-0.2,huevos-2.0
-helados caseros:leche-0.3,azúcar-0.06,huevos-4.0
+Bizcocho:harina de trigo-0.225,Agua-0.2,azúcar-0.2,huevos-2.0
+Helados caseros:leche-0.3,azúcar-0.06,huevos-4.0
 TARTA TATIN:manzanas-0.5,harina de trigo-0.4,agua-0.2

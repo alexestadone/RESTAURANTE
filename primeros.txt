@@ -1,9 +1,10 @@
 Sopa de cebolla:cebolla-4.0
 Sopa de patatas:patatas-10.0,agua-10.0
 Ensalada verde:tomate-2.0,lechuga-1.0,olivas-0.1,zanahoria-0.2
-ensalada de arroz:arroz-0.15,atun-0.05,maíz-0.2,hierbas-0.01
-ensalada de frutas:manzanas-3.0,naranjas-2.0,kiwi-2.0,ananas-0.5
+Ensalada de arroz:arroz-0.15,atun-0.05,maíz-0.2,hierbas-0.01
+Ensalada de frutas:manzanas-3.0,naranjas-2.0,kiwi-2.0,ananas-0.5
 Sopa de tomates:tomate-1.0,pan-0.2,aceite de oliva-0.02,ajo-2.0,hierbas-0.01
-patatas bravas:patatas-0.5,pimiento rojo-2.0,pimiento-0.005
-sopa de coliflor:coliflor-1.0,agua-2.0,Hierbas-0.03
-sopa de pollo:carne de pollo-0.3,zanahoria-3.0,pimienta-0.01
+Patatas bravas:patatas-0.5,pimiento rojo-2.0,pimiento-0.005
+Sopa de coliflor:coliflor-1.0,agua-2.0,Hierbas-0.03
+Sopa de pollo:carne de pollo-0.3,zanahoria-3.0,pimienta-0.01
+carne:entrecot-3.0,tomate-5.0
