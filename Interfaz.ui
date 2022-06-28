@@ -31,6 +31,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset theme="iconoventana"/>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -79,7 +82,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">

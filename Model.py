@@ -2,7 +2,6 @@ from PyQt5 import QtCore
 import random
 
 
-
 class Plato:
     def __init__(self, nombre, ingredientes):
         self.nombre = nombre
@@ -118,15 +117,6 @@ class Receta:
                 view.mpostres.addItem(postre.nombre)
             for bebida in self.Bebidas:
                 view.mbebidas.addItem(bebida.nombre)
-
-
-def alea(b, n):
-    lista = []
-    while len(lista) < n:
-        a = random.randint(0, b-1)
-        if a not in lista:
-            lista.append(a)
-    return lista
 
 
 class Menu(Receta):
@@ -260,6 +250,14 @@ class Model(object):
         msg.setText("PDF creado.")
         msg.setIcon(1)
         msg.exec()
+
+def alea(b, n):
+    lista = []
+    while len(lista) < n:
+        a = random.randint(0, b-1)
+        if a not in lista:
+            lista.append(a)
+    return lista
 
 # TODO: borrar ingrediente (lecha, lehe - błędy)
 

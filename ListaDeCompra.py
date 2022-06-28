@@ -1,5 +1,6 @@
 import sys
 from PyQt5 import uic
+from PyQt5 import QtGui
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from View import View
@@ -17,7 +18,7 @@ class Restaurante(QMainWindow):
         self.setCentralWidget(view)
         self.setWindowTitle('Lista De Compra')
         self.setFont(QFont("EB Garamond 12 All SC"))
-
+        self.setWindowIcon(QtGui.QIcon(":/img/icono"))
 
 def principal():
     app = QApplication(sys.argv)
