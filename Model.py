@@ -251,19 +251,15 @@ class Model(object):
         pdf.set_margins(20, 20, 20)
         pdf.add_page()
         pdf.set_font("Arial", size=15)
-        texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
+        texto = [" - " + f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
             pdf.cell(300, 10, txt=el, ln=i+1, align='L')
 
         pdf.output(f"ListaDeCompra_{date.today()}.pdf")
         msg = QMessageBox()
-        msg.setText("Enviado al PDF.")
+        msg.setText("PDF creado.")
         msg.setIcon(1)
         msg.exec()
 
-
-
-
 # TODO: borrar ingrediente (lecha, lehe - błędy)
-
 
