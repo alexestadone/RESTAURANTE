@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/crearmenu_fondo.jpg</file>
+    <file>img/listadecompra_fondo.jpg</file>
     <file alias="icono">img/icono.jpg</file>
     <file>img/receta-2.jpg</file>
     <file>img/ingredientes.jpg</file>

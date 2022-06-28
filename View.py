@@ -28,7 +28,7 @@ stylesheet = """
     
     #page_3
     {
-        background-image: url(:/img/img/menu.jpg);
+        background-image: url(:/img/img/crearmenu_fondo.jpg);
     }
     
     #page_6
@@ -43,7 +43,7 @@ stylesheet = """
     
     #page_4
     {
-        background-image: url(:/img/img/lista.jpg);
+        background-image: url(:/img/img/listadecompra_fondo.jpg);
     }
 
 """
