@@ -32,7 +32,8 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="iconoventana"/>
+   <iconset theme="iconoventana">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -82,7 +83,7 @@
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -486,10 +487,10 @@
      <widget class="QLabel" name="label_ingredientes_3">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>140</y>
-        <width>141</width>
-        <height>20</height>
+        <x>270</x>
+        <y>129</y>
+        <width>151</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="palette">
@@ -589,10 +590,10 @@
      <widget class="QLabel" name="label_cantidades_2">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>90</x>
         <y>80</y>
-        <width>111</width>
-        <height>20</height>
+        <width>131</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="palette">
@@ -638,7 +639,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Unidad:</string>
+       <string>Unidades:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -647,10 +648,10 @@
      <widget class="QLabel" name="label_ingredientes_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>140</y>
-        <width>161</width>
-        <height>20</height>
+        <x>30</x>
+        <y>129</y>
+        <width>171</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="palette">
@@ -720,10 +721,10 @@
      <widget class="QLabel" name="label_cantidades">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>40</y>
-        <width>131</width>
-        <height>20</height>
+        <x>70</x>
+        <y>30</y>
+        <width>151</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="palette">
@@ -802,10 +803,10 @@
      <widget class="QLabel" name="label_ingredientes">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>10</y>
-        <width>151</width>
-        <height>20</height>
+        <x>70</x>
+        <y>0</y>
+        <width>161</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="palette">
@@ -1072,10 +1073,10 @@
     <widget class="QLabel" name="label_ingredientes_5">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>160</y>
-       <width>121</width>
-       <height>20</height>
+       <x>120</x>
+       <y>139</y>
+       <width>131</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -1090,10 +1091,10 @@
     <widget class="QLabel" name="label_ingredientes_6">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>160</y>
-       <width>121</width>
-       <height>20</height>
+       <x>330</x>
+       <y>139</y>
+       <width>131</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -1108,10 +1109,10 @@
     <widget class="QLabel" name="label_ingredientes_7">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>160</y>
-       <width>101</width>
-       <height>20</height>
+       <x>550</x>
+       <y>140</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -1126,10 +1127,10 @@
     <widget class="QLabel" name="label_ingredientes_8">
      <property name="geometry">
       <rect>
-       <x>776</x>
-       <y>160</y>
-       <width>91</width>
-       <height>20</height>
+       <x>750</x>
+       <y>140</y>
+       <width>121</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -1204,7 +1205,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Atras</string>
+      <string>Atrás</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_ingredientes_9">
@@ -1228,9 +1229,9 @@
     <widget class="QPushButton" name="btnCrearMenu">
      <property name="geometry">
       <rect>
-       <x>324</x>
+       <x>310</x>
        <y>640</y>
-       <width>141</width>
+       <width>171</width>
        <height>41</height>
       </rect>
      </property>
@@ -1258,7 +1259,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Obtener tu lista de compra</string>
+      <string>Obtener lista de compra</string>
      </property>
     </widget>
    </widget>
@@ -1332,10 +1333,10 @@
     <widget class="QLabel" name="label_ingredientes_11">
      <property name="geometry">
       <rect>
-       <x>440</x>
-       <y>80</y>
-       <width>211</width>
-       <height>41</height>
+       <x>420</x>
+       <y>70</y>
+       <width>261</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -1362,7 +1363,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Atras</string>
+      <string>Atrás</string>
      </property>
     </widget>
     <widget class="QListWidget" name="segundos">
@@ -1388,10 +1389,10 @@
     <widget class="QLabel" name="label_ingredientes_12">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>146</y>
-       <width>121</width>
-       <height>20</height>
+       <x>380</x>
+       <y>140</y>
+       <width>141</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1416,10 +1417,10 @@
     <widget class="QLabel" name="label_ingredientes_13">
      <property name="geometry">
       <rect>
-       <x>774</x>
-       <y>147</y>
-       <width>91</width>
-       <height>20</height>
+       <x>750</x>
+       <y>140</y>
+       <width>111</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
@@ -1444,10 +1445,10 @@
     <widget class="QLabel" name="label_ingredientes_14">
      <property name="geometry">
       <rect>
-       <x>595</x>
-       <y>146</y>
-       <width>101</width>
-       <height>20</height>
+       <x>580</x>
+       <y>140</y>
+       <width>111</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">

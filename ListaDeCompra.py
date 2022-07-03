@@ -20,6 +20,7 @@ class Restaurante(QMainWindow):
         self.setFont(QFont("EB Garamond 12 All SC"))
         self.setWindowIcon(QtGui.QIcon(":/img/icono"))
 
+
 def principal():
     app = QApplication(sys.argv)
     app.setFont(QFont("EB Garamond 12 All SC"), "QLabel")
