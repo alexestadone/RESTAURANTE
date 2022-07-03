@@ -67,6 +67,7 @@ class View(QMainWindow, form_class):
     finalizarSignal = QtCore.pyqtSignal()
     listaSignal = QtCore.pyqtSignal()
     exportarSignal = QtCore.pyqtSignal()
+    borrarIngredienteSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
         # cargar el formulario
@@ -90,6 +91,9 @@ class View(QMainWindow, form_class):
 
     def finalizarIngrediente(self):
         self.finIngSignal.emit()
+
+    def borrarIngrediente(self):
+        self.borrarIngredienteSignal.emit()
 
     def mostrarMenu(self):
         self.menuSignal.emit()

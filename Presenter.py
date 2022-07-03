@@ -13,6 +13,7 @@ class Presenter:
         self.view.ingrSignal.connect(self.anadirIngrediente)
         self.view.recetaSignal.connect(self.mostrarRecetas)
         self.view.finIngSignal.connect(self.finalizarIngrediente)
+        self.view.borrarIngredienteSignal.connect(self.borrarIngrediente)
         self.view.menuSignal.connect(self.mostrarMenu)
         self.view.addToListSignal.connect(self.addToList)
         self.view.atrasSignal.connect(self.irAtras)
@@ -33,7 +34,9 @@ class Presenter:
     def finalizarIngrediente(self):
         self.model.anadirIngrediente(self.view)
         mensajeInfo("El ingrediente ya está añadido.")
-        print("prueba")
+
+    def borrarIngrediente(self):
+        pass
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)
