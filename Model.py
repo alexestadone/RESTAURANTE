@@ -218,6 +218,7 @@ class Model(object):
         view.btnConfirmar.setEnabled(True)
         view.input_nombre.setEnabled(True)
         view.btnFinalizar.setEnabled(False)
+        view.btnBorrarIngrediente.setEnabled(False)
 
     def finalizar(self, view):
         ingredientes = ''
@@ -260,7 +261,7 @@ class Model(object):
         texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
             a = i % 25
-            if(a == 0):
+            if a == 0:
                 pdf.add_page()
                 print(a)
             pdf.set_xy(20, 20+a*10)
@@ -275,7 +276,3 @@ class Model(object):
         msg.setText("Enviado al PDF.")
         msg.setIcon(1)
         msg.exec()
-
-# TODO: borrar ingrediente (lecha, lehe - błędy)
-
-

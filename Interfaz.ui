@@ -706,6 +706,9 @@
       </property>
      </widget>
      <widget class="QListWidget" name="lista_ing">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1874,6 +1877,22 @@
    <hints>
     <hint type="sourcelabel">
      <x>660</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lista_ing</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>formulario</receiver>
+   <slot>validaBorrar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
      <y>415</y>
     </hint>
     <hint type="destinationlabel">

@@ -14,6 +14,7 @@ class Presenter:
         self.view.recetaSignal.connect(self.mostrarRecetas)
         self.view.finIngSignal.connect(self.finalizarIngrediente)
         self.view.borrarIngredienteSignal.connect(self.borrarIngrediente)
+        self.view.btnActivarSignal.connect(self.activarBtnBorrar)
         self.view.menuSignal.connect(self.mostrarMenu)
         self.view.addToListSignal.connect(self.addToList)
         self.view.atrasSignal.connect(self.irAtras)
@@ -35,8 +36,15 @@ class Presenter:
         self.model.anadirIngrediente(self.view)
         mensajeInfo("El ingrediente ya está añadido.")
 
+    def activarBtnBorrar(self):
+        self.view.btnBorrarIngrediente.setEnabled(1)
+
     def borrarIngrediente(self):
-        pass
+        item = self.view.lista_ing.selectedItems()[0]
+        index = self.view.lista_ing.row(item)
+        self.view.lista_ing.takeItem(index)
+        self.view.lista_cant.takeItem(index)
+        self.view.btnBorrarIngrediente.setEnabled(False)
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)

@@ -57,6 +57,7 @@ class View(QMainWindow, form_class):
     platoSignal = QtCore.pyqtSignal()
     ingrSignal = QtCore.pyqtSignal()
     finIngSignal = QtCore.pyqtSignal()
+    btnActivarSignal = QtCore.pyqtSignal()
     recetaSignal = QtCore.pyqtSignal()
     menuSignal = QtCore.pyqtSignal()
     addToListSignal = QtCore.pyqtSignal()
@@ -79,6 +80,7 @@ class View(QMainWindow, form_class):
 
         # configuraciones iniciales
         self.pantallas.setCurrentIndex(0)
+        self.btnBorrarIngrediente.setEnabled(0)
         self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
         self.unidades.addItems(self.distrolist)
         self.unidades_ingr.addItems(self.distrolist)
@@ -118,6 +120,9 @@ class View(QMainWindow, form_class):
 
     def valida(self):
         self.inputCambiadoSignal.emit()
+
+    def validaBorrar(self):
+        self.btnActivarSignal.emit()
 
     def finalizar(self):
         self.finalizarSignal.emit()
