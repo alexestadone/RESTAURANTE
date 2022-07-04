@@ -1,6 +1,7 @@
 import sys
 from Model import Receta
 from Model import Menu
+from PyQt5.QtWidgets import QMessageBox
 
 
 class Presenter:
@@ -12,6 +13,8 @@ class Presenter:
         self.view.ingrSignal.connect(self.anadirIngrediente)
         self.view.recetaSignal.connect(self.mostrarRecetas)
         self.view.finIngSignal.connect(self.finalizarIngrediente)
+        self.view.borrarIngredienteSignal.connect(self.borrarIngrediente)
+        self.view.btnActivarSignal.connect(self.activarBtnBorrar)
         self.view.menuSignal.connect(self.mostrarMenu)
         self.view.addToListSignal.connect(self.addToList)
         self.view.atrasSignal.connect(self.irAtras)
@@ -24,12 +27,24 @@ class Presenter:
 
     def anadirPlato(self):
         self.view.pantallas.setCurrentIndex(1)
+        self.view.frame_2.setEnabled(False)
 
     def anadirIngrediente(self):
         self.view.pantallas.setCurrentIndex(2)
 
     def finalizarIngrediente(self):
         self.model.anadirIngrediente(self.view)
+        mensajeInfo("El ingrediente ya está añadido.")
+
+    def activarBtnBorrar(self):
+        self.view.btnBorrarIngrediente.setEnabled(1)
+
+    def borrarIngrediente(self):
+        item = self.view.lista_ing.selectedItems()[0]
+        index = self.view.lista_ing.row(item)
+        self.view.lista_ing.takeItem(index)
+        self.view.lista_cant.takeItem(index)
+        self.view.btnBorrarIngrediente.setEnabled(False)
 
     def mostrarRecetas(self):
         self.view.pantallas.setCurrentIndex(5)
@@ -51,6 +66,7 @@ class Presenter:
         # llamar la función para añadir un ingrediente a la lista
         self.model.add_tolist(ingredientes, cantidades, todos_ingredientes, todos_cantidades, unidad)
 
+        self.view.btnAdd.setEnabled(0)
         self.view.input_ingredientes.setText('')
         self.view.input_cantidades.setText('')
 
@@ -82,7 +98,9 @@ class Presenter:
     def finalizar(self):
         self.model.finalizar(self.view)
         self.model.clean(self.view)
+        self.view.frame_2.setEnabled(0)
         self.view.pantallas.setCurrentIndex(0)
+        mensajeInfo("El plato ya está añadido.")
 
     def lista(self):
         self.view.pantallas.setCurrentIndex(4)
@@ -90,6 +108,13 @@ class Presenter:
     def exportar(self):
         self.model.exportar(self.view)
         self.view.pantallas.setCurrentIndex(0)
+
+
+def mensajeInfo(texto):
+    msg = QMessageBox()
+    msg.setText(texto)
+    msg.setIcon(1)
+    msg.exec()
 
 
 

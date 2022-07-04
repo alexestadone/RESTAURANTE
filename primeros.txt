@@ -1,5 +1,9 @@
-Sopa de cebolla:cebolla-4.0
-Sopa de patatas:patatas-10.0,agua-10.0
-Ensalada verde:tomate-2.0,lechuga-1.0,olivas-0.1,zanahoria-0.2
-ensalada de arroz:arroz-0.15,atun-0.05,maíz-0.2,hierbas-0.01
-ensalada de frutas:manzanas-3.0,naranjas-2.0,kiwi-2.0,ananas-0.5
+Sopa de cebolla:cebolla-4.0|unidades
+Sopa de patatas:patatas-10.0|kilogramos,agua-10.0|litros
+Ensalada verde:tomate-2.0|unidades,lechuga-1.0|unidades,olivas-0.1|litros,zanahoria-0.2|kilogramos
+ensalada de arroz:arroz-0.15|kilogramos,atun-0.05|kilogramos,maíz-0.2|kilogramos,hierbas-0.01|kilogramos
+ensalada de frutas:manzanas-3.0|unidades,naranjas-2.0|unidades,kiwi-2.0|unidades,ananas-0.5|kilogramos
+Sopa de tomates:tomate-1.0|kilogramos,pan-0.2|kilogramos,aceite de oliva-0.02|litros,ajo-2.0|dientes,hierbas-0.01|kilogramos
+patatas bravas:patatas-0.5|kilogramos,pimiento rojo-2.0|unidades,pimiento-0.005|kilogramos
+sopa de coliflor:coliflor-1.0|unidades,agua-2.0|litros,Hierbas-0.03|kilogramos
+sopa de pollo:carne de pollo-0.3|kilogramos,zanahoria-3.0|unidades,pimienta-0.01|kilogramos

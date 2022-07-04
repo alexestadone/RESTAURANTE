@@ -1,6 +1,8 @@
 agua:
 vino:
-zumo de naranja:naranjas-5.0
-zumo de manzanas:manzanas-5.0
+zumo de naranja:naranjas-5.0|kilogramos
+zumo de manzanas:manzanas-5.0|kilogramos
 cerveza:
-Cola:
+COLA:
+fANTA:
+sangría:vino rojo-1.0|litros,fresa-0.25|kilogramos,frambuesas-0.1|kilogramos

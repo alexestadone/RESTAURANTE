@@ -2,7 +2,6 @@ from PyQt5 import QtCore
 import random
 
 
-
 class Plato:
     def __init__(self, nombre, ingredientes):
         self.nombre = nombre
@@ -139,11 +138,16 @@ class Menu(Receta):
                     if not ingrediente:
                         continue
                     nombre = ingrediente.split('-')[0]
-                    valor = float(ingrediente.split('-')[1])
+                    unidad = ""
+                    _ = ingrediente.split('-')[1]
+                    cantidadUnidad = _.split('|')
+                    valor = float(cantidadUnidad[0])
+                    if len(cantidadUnidad) > 1:
+                        unidad = cantidadUnidad[1]
                     if not ingredientes.get(nombre):
-                        ingredientes[nombre] = valor
+                        ingredientes[nombre] = [valor, unidad]
                     else:
-                        ingredientes[nombre] += valor
+                        ingredientes[nombre][0] += valor
 
         guardar(self.Primeros)
         guardar(self.Segundos)
@@ -152,7 +156,7 @@ class Menu(Receta):
 
         view.listaDeCompra.clear()
         for key in ingredientes:
-            view.listaDeCompra.addItem(f"{key} -> {round(ingredientes[key], 3)}")
+            view.listaDeCompra.addItem(f"{key} -> {round(ingredientes[key][0], 3)} {ingredientes[key][1]}")
 
     def elegirPlatos(self, view):
         lista = [self.Primeros[i] for i in alea(len(self.Primeros), min(5, len(self.Primeros)))]
@@ -214,13 +218,17 @@ class Model(object):
         view.btnConfirmar.setEnabled(True)
         view.input_nombre.setEnabled(True)
         view.btnFinalizar.setEnabled(False)
+        view.btnBorrarIngrediente.setEnabled(False)
 
     def finalizar(self, view):
         ingredientes = ''
         for i in range(view.lista_ing.count()):
+            cantidadUnidad = view.lista_cant.item(i).text().split(' ')
             ingredientes += view.lista_ing.item(i).text()
             ingredientes += '-'
-            ingredientes += view.lista_cant.item(i).text().split(' ')[0]
+            ingredientes += cantidadUnidad[0]
+            ingredientes += '|'
+            ingredientes += cantidadUnidad[1]
             ingredientes += ','
 
         if view.tipoDePlato.currentText().lower() == "primero":
@@ -240,6 +248,8 @@ class Model(object):
     def anadirIngrediente(self, view):
         ingredienteNuevo = Ingrediente(view.nombreIngrediente.text().lower(), view.precioIngrediente.text())
         ingredienteNuevo.guardar('ingredientes.txt')
+        view.nombreIngrediente.setText("")
+        view.precioIngrediente.setText("")
 
     def exportar(self, view):
         from PyQt5.QtWidgets import QMessageBox
@@ -247,21 +257,22 @@ class Model(object):
         from datetime import date
         pdf = FPDF()
         pdf.set_margins(20, 20, 20)
-        pdf.add_page()
         pdf.set_font("Arial", size=15)
         texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
-            pdf.cell(300, 10, txt=el, ln=i+1, align='L')
+            a = i % 25
+            if a == 0:
+                pdf.add_page()
+                print(a)
+            pdf.set_xy(20, 20+a*10)
+            pdf.multi_cell(80, 10, txt=el.split(' -> ')[0].capitalize(), align='C')
+            pdf.set_xy(100, 20+a * 10)
+            pdf.multi_cell(10, 10, txt="->")
+            pdf.set_xy(110, 20 + a * 10)
+            pdf.multi_cell(80, 10, txt=el.split(' -> ')[1], align='C')
 
         pdf.output(f"ListaDeCompra_{date.today()}.pdf")
         msg = QMessageBox()
         msg.setText("Enviado al PDF.")
         msg.setIcon(1)
         msg.exec()
-
-
-
-
-# TODO: borrar ingrediente (lecha, lehe - błędy)
-
-

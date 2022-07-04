@@ -75,11 +75,14 @@
      <bold>false</bold>
     </font>
    </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page">
     <property name="sizePolicy">
@@ -211,6 +214,9 @@
           <bold>true</bold>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="text">
          <string>Crear un menú</string>
         </property>
@@ -232,6 +238,9 @@
           <italic>false</italic>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="text">
          <string>Recetas</string>
@@ -335,6 +344,9 @@
       <font>
        <pointsize>15</pointsize>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
       <string>Confirmar</string>
@@ -558,6 +570,9 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="text">
        <string>Añadir</string>
       </property>
@@ -691,6 +706,9 @@
       </property>
      </widget>
      <widget class="QListWidget" name="lista_ing">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -786,6 +804,9 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="text">
        <string>Finalizar</string>
       </property>
@@ -878,8 +899,32 @@
        <pointsize>15</pointsize>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="text">
       <string>Atras</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBorrarIngrediente">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>400</y>
+       <width>201</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Borrar ingrediente</string>
      </property>
     </widget>
    </widget>
@@ -902,7 +947,7 @@
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <widget class="QComboBox" name="unidades_4">
+     <widget class="QComboBox" name="unidades_ingr">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -916,26 +961,6 @@
         <pointsize>15</pointsize>
        </font>
       </property>
-      <item>
-       <property name="text">
-        <string>Kilogramos</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Litros</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Docenas</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Unidades</string>
-       </property>
-      </item>
      </widget>
      <widget class="QPushButton" name="btnAtras2">
       <property name="geometry">
@@ -950,6 +975,9 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="text">
        <string>Volver</string>
@@ -978,6 +1006,9 @@
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="text">
        <string>Añadir</string>
@@ -1214,6 +1245,9 @@
        <pointsize>15</pointsize>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="text">
       <string>Atras</string>
      </property>
@@ -1250,6 +1284,9 @@
        <pointsize>15</pointsize>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="text">
       <string>Crear de nuevo</string>
      </property>
@@ -1267,6 +1304,9 @@
       <font>
        <pointsize>15</pointsize>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
       <string>Obtener tu lista de compra</string>
@@ -1316,6 +1356,9 @@
        <pointsize>15</pointsize>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
      <property name="text">
       <string>Volver al inicio</string>
      </property>
@@ -1333,6 +1376,9 @@
       <font>
        <pointsize>15</pointsize>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
       <string>Exportar a PDF</string>
@@ -1371,6 +1417,9 @@
       <font>
        <pointsize>15</pointsize>
       </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
       <string>Atras</string>
@@ -1820,6 +1869,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnBorrarIngrediente</sender>
+   <signal>clicked()</signal>
+   <receiver>formulario</receiver>
+   <slot>borrarIngrediente()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>660</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lista_ing</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>formulario</receiver>
+   <slot>validaBorrar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>valida()</slot>
@@ -1838,5 +1919,7 @@
   <slot>finalizarIngrediente()</slot>
   <slot>lista()</slot>
   <slot>exportar()</slot>
+  <slot>borrarIngrediente()</slot>
+  <slot>validaBorrar()</slot>
  </slots>
 </ui>

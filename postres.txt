@@ -1,5 +1,7 @@
-tiramisú:huevos-4.0
-churros:harina de trigo-0.25,Agua-0.25,sal-0.008
-Galletas de chocolate:copos de avena-0.08,almendras-0.06,chocolate-0.03
-bizcocho:harina de trigo-0.225,Agua-0.2,azúcar-0.2,huevos-2.0
-helados caseros:leche-0.3,azúcar-0.06,huevos-4.0
+tiramisú:huevos-4.0|unidades
+churros:harina de trigo-0.25|kilogramos,Agua-0.25|litros,sal-0.008|kilogramos
+Galletas de chocolate:copos de avena-0.08|kilogramos,almendras-0.06|kilogramos,chocolate-0.03|kilogramos
+bizcocho:harina de trigo-0.225|kilogramos,Agua-0.2|litros,azúcar-0.2|kilogramos,huevos-2.0|unidades
+helados caseros:leche-0.3|litros,azúcar-0.06|kilogramos,huevos-4.0|unidades
+TARTA TATIN:manzanas-0.5|kilogramos,harina de trigo-0.4|kilogramos,agua-0.2|litros
+FLAN:Crema-0.2|Litros

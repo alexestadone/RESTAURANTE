@@ -1,10 +1,8 @@
-import sys
-from PyQt5 import uic, QtWidgets, QtCore, QtGui
-from PyQt5.QtWidgets import QMessageBox, QMainWindow, QDialog
-from PyQt5.QtGui import QFont
+from PyQt5 import uic, QtCore
+from PyQt5.QtWidgets import QMainWindow
 
-form_class = uic.loadUiType('Interfaz.ui')[0]
 
+# estilo de las ventanas
 stylesheet = """
     #page
     {
@@ -50,11 +48,16 @@ stylesheet = """
 
 """
 
+# cargar el interfaz de Qt Designer
+form_class = uic.loadUiType('Interfaz.ui')[0]
+
 
 class View(QMainWindow, form_class):
+    # señales usadas
     platoSignal = QtCore.pyqtSignal()
     ingrSignal = QtCore.pyqtSignal()
     finIngSignal = QtCore.pyqtSignal()
+    btnActivarSignal = QtCore.pyqtSignal()
     recetaSignal = QtCore.pyqtSignal()
     menuSignal = QtCore.pyqtSignal()
     addToListSignal = QtCore.pyqtSignal()
@@ -65,26 +68,36 @@ class View(QMainWindow, form_class):
     finalizarSignal = QtCore.pyqtSignal()
     listaSignal = QtCore.pyqtSignal()
     exportarSignal = QtCore.pyqtSignal()
+    borrarIngredienteSignal = QtCore.pyqtSignal()
 
     def __init__(self, parent=None):
+        # cargar el formulario
         QMainWindow.__init__(self, parent)
-        self.setupUi(self)  # Constructor Formulario Designer Cargamos el formulario
-        self.pantallas.setCurrentIndex(0)
-        self.setStyleSheet(stylesheet)
-        self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
-        self.unidades.addItems(self.distrolist)  # añadir lista al combobox de unidades
-        self.frame_2.setEnabled(False)
+        self.setupUi(self)
 
-    def anadirPlato(self):  # poner aquí el nombre del slot  y a continuación su código
+        # especificar el estilo
+        self.setStyleSheet(stylesheet)
+
+        # configuraciones iniciales
+        self.pantallas.setCurrentIndex(0)
+        self.btnBorrarIngrediente.setEnabled(0)
+        self.distrolist = ['Kilogramos', 'Gramos', 'Litros', 'Mililitros', 'Unidades', 'Dientes']
+        self.unidades.addItems(self.distrolist)
+        self.unidades_ingr.addItems(self.distrolist)
+
+    def anadirPlato(self):
         self.platoSignal.emit()
 
-    def anadirIngrediente(self):  # poner aquí el nombre del slot  y a continuación su código
+    def anadirIngrediente(self):
         self.ingrSignal.emit()
 
     def finalizarIngrediente(self):
         self.finIngSignal.emit()
 
-    def mostrarMenu(self):  # poner aquí el nombre del slot  y a continuación su código
+    def borrarIngrediente(self):
+        self.borrarIngredienteSignal.emit()
+
+    def mostrarMenu(self):
         self.menuSignal.emit()
 
     def add_tolist(self):
@@ -107,6 +120,9 @@ class View(QMainWindow, form_class):
 
     def valida(self):
         self.inputCambiadoSignal.emit()
+
+    def validaBorrar(self):
+        self.btnActivarSignal.emit()
 
     def finalizar(self):
         self.finalizarSignal.emit()
