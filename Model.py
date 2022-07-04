@@ -249,14 +249,13 @@ class Model(object):
         pdf = FPDF()
         pdf.set_margins(20, 20, 20)
         pdf.set_font("Arial", size=15)
-        texto = [" - " + f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
+        texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
             a = i % 25
             if a == 0:
                 pdf.add_page()
-                print(a)
             pdf.set_xy(20, 20+a*10)
-            pdf.multi_cell(80, 10, txt=el.split(' -> ')[0].capitalize(), align='C')
+            pdf.multi_cell(80, 10, txt=" - " + el.split(' -> ')[0].capitalize(), align='C')
             pdf.set_xy(100, 20+a * 10)
             pdf.multi_cell(10, 10, txt="->")
             pdf.set_xy(110, 20 + a * 10)
@@ -267,3 +266,12 @@ class Model(object):
         msg.setText("PDF creado.")
         msg.setIcon(1)
         msg.exec()
+
+
+def alea(b, n):
+    lista = []
+    while len(lista) < n:
+        a = random.randint(0, b - 1)
+        if a not in lista:
+            lista.append(a)
+    return lista

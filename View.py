@@ -117,7 +117,6 @@ class View(QMainWindow, form_class):
 
     def crearMenu(self):
         pass
-    #TODO
 
 
     def valida(self):
