@@ -63,7 +63,6 @@ class Presenter:
         todos_cantidades = self.view.get_todos_cantidades()
         unidad = self.view.unidades.currentText()
 
-        # llamar la función para añadir un ingrediente a la lista
         self.model.add_tolist(ingredientes, cantidades, todos_ingredientes, todos_cantidades, unidad)
 
         self.view.btnAdd.setEnabled(0)
@@ -115,11 +114,4 @@ def mensajeInfo(texto):
     msg.setText(texto)
     msg.setIcon(1)
     msg.exec()
-
-
-
-
-
-
-
 

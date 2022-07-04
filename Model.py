@@ -119,15 +119,6 @@ class Receta:
                 view.mbebidas.addItem(bebida.nombre)
 
 
-def alea(b, n):
-    lista = []
-    while len(lista) < n:
-        a = random.randint(0, b-1)
-        if a not in lista:
-            lista.append(a)
-    return lista
-
-
 class Menu(Receta):
     def listaDeCompra(self, view):
         ingredientes = {}
@@ -258,7 +249,7 @@ class Model(object):
         pdf = FPDF()
         pdf.set_margins(20, 20, 20)
         pdf.set_font("Arial", size=15)
-        texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
+        texto = [" - " + f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
         for i, el in enumerate(texto):
             a = i % 25
             if a == 0:
@@ -273,6 +264,6 @@ class Model(object):
 
         pdf.output(f"ListaDeCompra_{date.today()}.pdf")
         msg = QMessageBox()
-        msg.setText("Enviado al PDF.")
+        msg.setText("PDF creado.")
         msg.setIcon(1)
         msg.exec()
