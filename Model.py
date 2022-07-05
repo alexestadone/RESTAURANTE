@@ -65,7 +65,7 @@ class Ingrediente:
             with open(file, 'w') as f:
                 for line in new_lines:
                     f.write(line)
-        print(self.precio)
+
 
 class Receta:
     def __init__(self):
