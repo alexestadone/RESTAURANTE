@@ -99,7 +99,7 @@ class Presenter:
         self.model.clean(self.view)
         self.view.frame_2.setEnabled(0)
         self.view.pantallas.setCurrentIndex(0)
-        mensajeInfo("El plato ya está añadido.")
+        mensajeInfo("Se ha añadido el plato.")
 
     def lista(self):
         self.view.pantallas.setCurrentIndex(4)

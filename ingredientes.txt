@@ -4,7 +4,8 @@ tomate:2
 lechuga:3
 frambuesa:11
 fresa:8
-vino rojo:5
+vino rojo:6
 vino blanco:5
 manzana:2
 romero:100
+anís:14

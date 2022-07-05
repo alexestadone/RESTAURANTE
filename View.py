@@ -1,7 +1,6 @@
 from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QMainWindow
 
-
 # estilo de las ventanas
 stylesheet = """
     #page
@@ -114,10 +113,6 @@ class View(QMainWindow, form_class):
 
     def mostrarRecetas(self):
         self.recetaSignal.emit()
-
-    def crearMenu(self):
-        pass
-
 
     def valida(self):
         self.inputCambiadoSignal.emit()

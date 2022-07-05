@@ -1,7 +1,10 @@
-tiramisú:huevos-4.0|unidades
-churros:harina de trigo-0.25|kilogramos,Agua-0.25|litros,sal-0.008|kilogramos
+Tiramisú:huevos-4.0|unidades
+Churros:harina de trigo-0.25|kilogramos,Agua-0.25|litros,sal-0.008|kilogramos
 Galletas de chocolate:copos de avena-0.08|kilogramos,almendras-0.06|kilogramos,chocolate-0.03|kilogramos
-bizcocho:harina de trigo-0.225|kilogramos,Agua-0.2|litros,azúcar-0.2|kilogramos,huevos-2.0|unidades
-helados caseros:leche-0.3|litros,azúcar-0.06|kilogramos,huevos-4.0|unidades
-TARTA TATIN:manzanas-0.5|kilogramos,harina de trigo-0.4|kilogramos,agua-0.2|litros
-FLAN:Crema-0.2|Litros
+Bizcocho:harina de trigo-0.225|kilogramos,Agua-0.2|litros,azúcar-0.2|kilogramos,huevos-2.0|unidades
+Helados caseros:leche-0.3|litros,azúcar-0.06|kilogramos,huevos-4.0|unidades
+Tarta tatin:manzanas-0.5|kilogramos,harina de trigo-0.4|kilogramos,agua-0.2|litros
+Flan:Crema-0.2|Litros
+Ensaladilla:gambas-0.1|Kilogramos
+C�ctel de frutas:Cereza-0.5|Kilogramos,manzana-0.5|Kilogramos,naranja-0.5|Kilogramos
+galletas:galletas oreo-1.0|Unidades

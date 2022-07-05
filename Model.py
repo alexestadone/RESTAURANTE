@@ -65,7 +65,7 @@ class Ingrediente:
             with open(file, 'w') as f:
                 for line in new_lines:
                     f.write(line)
-
+        print(self.precio)
 
 class Receta:
     def __init__(self):
@@ -250,20 +250,23 @@ class Model(object):
         pdf.set_margins(20, 20, 20)
         pdf.set_font("Arial", size=15)
         texto = [f"{view.listaDeCompra.item(i).text()}" for i in range(view.listaDeCompra.count())]
+
         for i, el in enumerate(texto):
             a = i % 25
             if a == 0:
                 pdf.add_page()
-            pdf.set_xy(20, 20+a*10)
+            pdf.set_xy(20, 20 + a * 10)
             pdf.multi_cell(80, 10, txt=" - " + el.split(' -> ')[0].capitalize(), align='C')
-            pdf.set_xy(100, 20+a * 10)
+            pdf.set_xy(100, 20 + a * 10)
             pdf.multi_cell(10, 10, txt="->")
+            pdf.set_xy(110, 20 + a * 10)
+            pdf.multi_cell(80, 10, txt=el.split(' -> ')[1], align='C')
             pdf.set_xy(110, 20 + a * 10)
             pdf.multi_cell(80, 10, txt=el.split(' -> ')[1], align='C')
 
         pdf.output(f"ListaDeCompra_{date.today()}.pdf")
         msg = QMessageBox()
-        msg.setText("PDF creado.")
+        msg.setText("Su lista de la compra ha sido creada.")
         msg.setIcon(1)
         msg.exec()
 
