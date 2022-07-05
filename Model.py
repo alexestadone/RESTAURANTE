@@ -30,11 +30,7 @@ class Postre(Plato):
             f.write(self.nombre + ':' + self.ingredientes + '\n')
 
 
-class Bebida:
-    def __init__(self, nombre, ingredientes):
-        self.nombre = nombre
-        self.ingredientes = ingredientes[:-1]
-
+class Bebida(Plato):
     def guardar(self, file='bebidas.txt'):
         with open(file, 'a') as f:
             f.write(self.nombre + ':' + self.ingredientes + '\n')
